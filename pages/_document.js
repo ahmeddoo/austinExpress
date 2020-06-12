@@ -10,7 +10,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>austinExpress</title>
           <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;400;600;700&family=Roboto:wght@100;300&display=swap"
             rel="stylesheet"

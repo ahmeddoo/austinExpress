@@ -12,6 +12,7 @@ const backdrop = (props) => {
           z-index: 90;
           top: 0px;
           right: 0px;
+          display: ${props.show ? "block" : "none"};
         }
       `}</style>
     </div>

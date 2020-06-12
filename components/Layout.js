@@ -1,4 +1,4 @@
-const layout = props => {
+const layout = (props) => {
   return (
     <div className="page-layout">
       {props.children}
@@ -41,12 +41,12 @@ const layout = props => {
           color: #1b222b;
         }
         select {
-          -webkit-appearance: none;
+          // -webkit-appearance: none;
           background-position: right 12px center;
           background-repeat: no-repeat;
-          background-image: url("/images/download.svg");
+          // background-image: url("/images/download.svg");
           backgroung-color: white;
-          padding: 8px 50px 8px 8px;
+          padding: 8px 30px 8px 0px;
           font-family: "Open Sans", san-serif;
         }
       `}</style>

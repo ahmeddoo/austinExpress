@@ -3,7 +3,7 @@ import Logo from "../components/Logo";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-const account = () => {
+const account = (props) => {
   const [statusState, setStatusState] = useState(true);
 
   const OnToggleAccountHandler = () => {
@@ -28,13 +28,14 @@ const account = () => {
           left: calc(50% - 220px);
           width: 440px;
           height: 500px;
-          display: flex;
+          display: ${props.show ? "flex" : "none"};
           flex-direction: column;
           align-items: center;
           background-color: white;
           z-index: 100;
           border-radius: 10px;
           padding: 30px 30px 0px 30px;
+          transition: all 5s linear;
         }
 
         @media screen and (max-width: 1260px) {

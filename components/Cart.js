@@ -1,25 +1,21 @@
 import React from "react";
+import Link from "next/link";
 
 const cart = () => {
   return (
     <div className="cart-wrapper">
-      <img src="/images/cartb.svg" alt="cart" className="cart" /> ( Cart 0 )
+      <Link href="/cart">
+        <a>
+          <img src="/images/cartb.svg" alt="cart" className="cart" /> ( Cart 0 )
+        </a>
+      </Link>
       {/* <div className="items-no">0</div> */}
       <style jsx>{`
-        .cart-wrapper {
-          position: relative;
-        }
-        .items-no {
-          position: absolute;
-          top: -13px;
-          left: -5px;
-          font-weight: bold;
-        }
         .cart-wrapper {
           // background-color: #ffdb00;
           min-width: 150px;
           min-height: 40px;
-          padding: 0px 20px;
+          padding: 0px 10px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -28,12 +24,14 @@ const cart = () => {
           border: 3px solid #ffdb00;
           cursor: pointer;
         }
-
+        .cart-wrapper a {
+          display: block;
+        }
         .cart-wrapper:hover {
           background-color: #ffdb00;
         }
         .cart {
-          width: 20px;
+          width: 15px;
           margin-right: 5px;
         }
       `}</style>

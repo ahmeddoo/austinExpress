@@ -31,7 +31,7 @@ const product = () => {
             </div>
           </div>
           <div className="checkout">
-            <h1 className="price">$89.95</h1>
+            <h2 className="price">$89.95</h2>
             <h4>Ships Free</h4>
 
             <label>
@@ -110,7 +110,7 @@ const product = () => {
           color: #575757;
         }
         .price {
-          color: #f13c31;
+          color: #b12704;
         }
         .add-cart {
           margin-top: 20px;

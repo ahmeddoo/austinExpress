@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Spacer from "../Spacer";
 import Navigation from "./Navigation";
+import Backdrop from "../Backdrop";
+import Account from "../../container/Account";
 
 const navigations = () => {
+  const [showAccount, setShowAccount] = useState(false);
   const navs = [
     //Women Navigation list
     {
@@ -181,6 +184,11 @@ const navigations = () => {
       ],
     },
   ];
+
+  const showAccountHandler = () => {
+    setShowAccount(!showAccount);
+  };
+
   return (
     <div className="nav-wrapper">
       <ul>
@@ -188,12 +196,12 @@ const navigations = () => {
           <Navigation key={index} target={nav} />
         ))}
         <Spacer />
-        <li>
-          <Link href="/account">
-            <a>Sign in / Register</a>
-          </Link>
+        <li onClick={showAccountHandler} id="accountBtn">
+          Sign in / Register
         </li>
       </ul>
+      <Backdrop show={showAccount} clicked={showAccountHandler} />
+      <Account show={showAccount} />
       <style jsx>{`
         .nav-wrapper {
           width: 100%;
@@ -201,6 +209,7 @@ const navigations = () => {
           height: 55px;
           display: flex;
           align-items: center;
+         
         }
 
         .nav-wrapper ul {
@@ -228,6 +237,14 @@ const navigations = () => {
       <style jsx global>{`
         .nav-wrapper ul li:first-child {
           padding-left: 0px;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        .visuallyhidden {
+          opacity: 0;
         }
       `}</style>
     </div>

@@ -13,7 +13,7 @@ const productInfo = (props) => {
           <div className="product-details">
             <span className="product-category">{brand}</span>
             <span className="product-name">{name}</span>
-            <span className="product-price">{"$" + price}</span>
+            <h4 className="product-price">{"$" + price}</h4>
           </div>
         </a>
       </Link>
@@ -53,7 +53,7 @@ const productInfo = (props) => {
           width: 100%;
         }
         .product-price {
-          color: #f13c31;
+          color: #b12704;
         }
       `}</style>
     </article>
