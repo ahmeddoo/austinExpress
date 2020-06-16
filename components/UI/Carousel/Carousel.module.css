@@ -78,6 +78,6 @@
 
 .CircleButtons span:hover,
 .CircleButtons span.Active {
-    background-color: #000;
+    background-color: #0654b3;
     transform: scale(1);
 }

@@ -1,26 +1,30 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Carousel.module.css";
 
 const carousel = () => {
     const carouselRef = useRef();
-    const [counterState, setCounterState] = useState(1);
+    let [counterState, setCounterState] = useState(1);
 
-    let counter = 1;
     useEffect(() => {
         carouselRef.current.style.scrollBehavior = "unset";
         carouselRef.current.scrollBy(carouselRef.current.clientWidth, 0);
-        const intervalRef = setInterval(() => {
-            counter++;
-            carouselRef.current.scrollTo(carouselRef.current.clientWidth * counter, 0);
-        }, 2000);
-        () => {
-            clearInterval(intervalRef);
-        }
     }, []);
 
+    let intervalRef;
+
+    useEffect(() => {
+        intervalRef = setInterval(() => {
+            setCounterState(++counterState);
+            console.log(counterState);
+            carouselRef.current.scrollTo(carouselRef.current.clientWidth * counterState, 0);
+        }, 2000);
+        return () => {
+            clearInterval(intervalRef);
+        }
+    }, [counterState]);
+
     const onCarouselScrollHandler = () => {
-        console.log("Scroll...")
-        setCounterState(p => setCounterState(p+1));
         carouselRef.current.style.scrollBehavior = "smooth";
         const end = carouselRef.current.clientWidth + carouselRef.current.scrollLeft;
         const start = 0;
@@ -28,30 +32,29 @@ const carousel = () => {
         if( end + 5 >= carouselRef.current.scrollWidth ) {
             carouselRef.current.style.scrollBehavior = "unset";
             carouselRef.current.scrollTo(carouselRef.current.clientWidth, 0);
-            counter = 1;
             setCounterState(1);
         }
         // check if we're at the beginning of scroll
         if(carouselRef.current.scrollLeft === start) {
             carouselRef.current.style.scrollBehavior = "unset";
             carouselRef.current.scrollTo(carouselRef.current.clientWidth * 4, 0);
-            counter = 4;
+            setCounterState(4);
         }
     }
 
     const onPrevHandler = () => {
-        counter--;
-        carouselRef.current.scrollTo(carouselRef.current.clientWidth * counter, 0);
+        setCounterState(p => setCounterState(p-1));
+        carouselRef.current.scrollTo(carouselRef.current.clientWidth * counterState, 0);
     }
 
     const onNextHandler = () => {
-        counter++;
-        carouselRef.current.scrollTo(carouselRef.current.clientWidth * counter, 0);
+        setCounterState(p => setCounterState(p+1));
+        carouselRef.current.scrollTo(carouselRef.current.clientWidth * counterState, 0);
     }
 
     const onScrollToPosHandler = ( pos ) => {
         carouselRef.current.scrollTo(carouselRef.current.clientWidth * pos, 0);
-        counter = pos;
+        setCounterState(pos);
     }
 
     return (
