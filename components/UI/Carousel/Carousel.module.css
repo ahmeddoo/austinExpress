@@ -1,0 +1,83 @@
+
+.Carousel__Conatiner {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: 0px;
+    scrollbar-color: transparent transparent;
+    overflow-x: auto;
+    scrollbar-color: transparent transparent;
+    box-sizing: border-box;
+}
+
+.Carousel__Conatiner::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.Carousel__Content {
+    position: relative;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
+
+.Message__Card {
+    position: absolute;
+    width: 400px;
+    min-height: 200px;
+    left: 30px;
+    bottom: 30px;
+    background-color: white;
+    padding: 30px;
+}
+
+.Button {
+    border: 2px solid;
+    padding: 10px 30px;
+    background-color: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.Carousel__Buttons .PrevBtn,
+.Carousel__Buttons .NextBtn {
+    position: absolute;
+    top: 45%;
+    cursor: pointer;
+}
+
+.Carousel__Buttons .PrevBtn {
+    left: -25px;
+    transform: rotate(180deg);
+}
+
+.Carousel__Buttons .NextBtn {
+    right: -25px;
+}
+
+.CircleButtons {
+    text-align: center;
+}
+
+.CircleButtons span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #FFF;
+    cursor: pointer;
+    font-family: sans-serif;
+    transform: scale(0.8);
+    transition: ease 0.3s;
+}
+
+.CircleButtons span:hover,
+.CircleButtons span.Active {
+    background-color: #0654b3;
+    transform: scale(1);
+}
